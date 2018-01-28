@@ -1,0 +1,454 @@
+$colors: (
+  white: white,
+  red: red,
+  grey: grey,
+  orange: orange,
+  green: green,
+  floralwhite: floralwhite
+);
+
+$heights: (
+    headerHeight: 200px,
+    bodyHeight: 800px,
+    footerHeight: 300px
+);
+
+$fonts-sizes:(
+  oneEm:1em,
+  oneHalf: 1.5em,
+  twoEm: 2em,
+  twoHalfEm: 2.5em,
+  threeHalfEm: 3.5em,
+  zeroEightEm: 0.8em,
+);
+
+
+$font: calibri;
+
+.body {
+  font-family: $font;
+}
+
+
+
+.logo {
+        max-width: 100px;
+        max-height: 100px;
+      &-filter {
+        max-width: 50px;
+        max-height: 50px;
+      }
+      }
+.main-header {
+    background:  #{map-get($colors, white)};
+    max-height: #{map-get($heights, headerHeight)};
+    &__title {
+      margin-left: 3%;
+    }
+    &__nav {
+      &-link {
+        margin-right: 20px;
+        text-decoration:none;
+        font-size:  #{map-get($fonts-sizes, twoEm)};
+      }
+      &-toggle__list{
+        display:none;
+      }
+      &-toggle:hover &-toggle__list {
+      display: block; 
+      }
+      
+    }
+    &__button{
+      &-search{
+        border: none;
+        height: 100px;
+        width: 100px;
+        background-image: url("images/search-icon.png");
+      }
+      &-login {
+        background-color: #{map-get($colors, red)};
+        border: none;
+        color: #{map-get($colors, white)};;
+        font-size:  #{map-get($fonts-sizes, twoEm)};
+        height: 100px;
+        width: 300px;
+        
+      }
+    }
+    
+}
+@mixin title() {
+    font-size: #{map-get($fonts-sizes, threeHalfEm)};
+    width: 100%;
+    text-align: center;
+    margin: 2% 0px 2% 0px;
+}
+
+.header-section {
+  background:black;
+  background-size: 100% auto;
+  height: 600px;
+  color: #{map-get($colors, white)};
+
+  &__title {
+    @include title
+  }
+  &__box{
+    width: 100%;
+    &-select {
+    -webkit-border-radius: 150px; 
+    height: 100px;
+    font-size: #{map-get($fonts-sizes, twoHalfEm)};
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #{map-get($colors, white)};
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-left:10px;
+    }
+    &-select option {
+      background-color: #{map-get($colors, grey)};
+    }
+    &-select:focus {
+       outline: transparent;
+    }
+  }
+  &__search {
+    width: 100%;
+    &-input {
+      -webkit-border-radius: 150px; 
+      height: 100px;
+      width: 800px;
+      font-size: #{map-get($fonts-sizes, twoHalfEm)};
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #{map-get($colors, white)};
+      display: table;
+      margin: 2% auto;
+      padding-left: 10px;
+    }
+    &-input::placeholder {
+      color: white;
+    }
+    &-input:focus {
+      outline: transparent;
+    }
+    &-button {
+      -webkit-border-radius: 150px; 
+      height: 100px;
+      width: 400px;
+      font-size: #{map-get($fonts-sizes, twoHalfEm)};
+      background-color: #{map-get($colors, red)};
+      color: #{map-get($colors, white)};
+      border-color:  #{map-get($colors, red)};
+      display: table;
+      margin: 2% auto;
+      padding-left: 10px;
+    }
+     &-button:focus {
+      outline: transparent;
+    }
+  }
+}
+.header-footer {
+  &-box {
+    margin: 20px 0px 20px 100px;
+    font-size:  #{map-get($fonts-sizes, twoEm)};
+     &__link {
+        margin-right: 20px;
+        text-decoration:none;
+     }
+     &__link:first-child {
+       color:#{map-get($colors, orange)};;
+     }
+     &__select {
+           -webkit-border-radius: 150px;
+          height: 50px;
+          width: 150px;
+          font-size: #{map-get($fonts-sizes, zeroEightEm)};
+          background-color: transparent;
+          color: #{map-get($colors, grey)};
+          margin-right: 10px;
+          padding-left: 10px;
+     }
+    &__select:focus {
+       outline: transparent;
+    }
+    &__button{
+      -webkit-border-radius: 150px;
+      height: 50px;
+      width: 300px;
+      font-size:  #{map-get($fonts-sizes, zeroEightEm)};
+      background: none;
+      color: #{map-get($colors, grey)};
+      padding-left: 10px;
+    }
+    &__button:focus {
+       outline: transparent;
+    }
+    &__filter{
+      margin-right:10px;
+    }
+  }
+}
+.article {
+  word-wrap: break-word;
+  text-align: center;
+}
+.font-color {
+@each $name, $color in $colors {
+    &-#{$name} {
+      color:$color
+      }
+  }
+}
+.font-size{
+  @each $name, $size in $fonts-sizes {
+    &-#{$name} {
+      font-size:$size
+      }
+  }
+}
+
+
+.background-color {
+@each $name, $color in $colors {
+    &-#{$name} {
+      background-color:$color
+      }
+  }
+}
+$smallBlockWidth: 20%;
+$smallBlockHeight: 400px;
+$bigBlockWidth: $smallBlockWidth*2;
+$bigBLockHeight: 500px;
+.main-section {
+  padding: 0 10% 0 20%;
+  &__small-block{
+    width: $smallBlockWidth;
+    height: $smallBlockHeight;
+    margin: 10px 10px 10px 10px;
+    background-color:#{map-get($colors, white)} ;
+    &-image{
+      width: 100%;
+      height: $smallBlockHeight/2;
+      max-height: $smallBlockHeight/2;
+      -webkit-border-radius: 10px 10px 0 0;
+    }
+    @each $name, $color in $colors {
+    &__bottom-#{$name} {
+      border-bottom: 10px solid $color;
+      }
+    }
+    &-logo{
+      width: $smallBlockWidth;
+      margin: -$smallBlockWidth/2 auto auto auto;
+      display: table;
+    }
+    &-company-name{
+      text-align: center;
+    }
+  }
+
+  &__big-block{
+    width: $bigBlockWidth;
+    height: $bigBLockHeight;
+    margin: 10px 10px 10px 25px;
+    background-color:#{map-get($colors, white)} ;
+    &-image{
+      width: 100%;
+      height: $bigBLockHeight/2;
+      max-height: $bigBLockHeight/2;
+      -webkit-border-radius: 10px 10px 0 0;
+    }
+    @each $name, $color in $colors {
+    &__bottom-#{$name} {
+      border-bottom: 10px solid $color;
+      }
+    }
+    &-logo{
+      width: $bigBlockWidth/4;
+      margin: -$bigBlockWidth/6 auto auto auto;
+      display: table;
+    }
+    &-company-name{
+      text-align: center;
+    }
+  }
+  &__footer {
+    &-image {
+      width: 15%;
+      margin: 1% 1% 1% 1%;
+    }
+    &-list{
+      &-image{
+          width: 5%;
+          margin: 1% 1% 1% 1%;
+      }
+    }
+  }
+}
+
+.main-footer{
+  background:black;
+  background-size: 100% auto;
+  height: 700px;
+  color: #{map-get($colors, white)};
+  &-title {
+    @include title;
+  }
+  &-subscribe {
+     -webkit-border-radius: 150px; 
+      height: 100px;
+      border: 1px solid #fff;
+      margin: 2% auto;
+      padding-left: 10px;
+      display: table;
+    &__input{
+       -webkit-border-radius: 150px; 
+      height: 100px;
+      width: 400px;
+      font-size: #{map-get($fonts-sizes, twoEm)};
+      background-color: transparent;
+      border: transparent;
+      color: #{map-get($colors, white)};
+      margin: 2% auto;
+      padding-left: 10px;
+    }
+    &__input::placeholder {
+      color: white;
+    }
+    &__input:focus {
+      outline: transparent;
+    }
+    &__button {
+      -webkit-border-radius: 150px; 
+      height: 100px;
+      width: 250px;
+      font-size: #{map-get($fonts-sizes, twoEm)};
+      background-color: #{map-get($colors, red)};
+      color: #{map-get($colors, white)};
+      border-color:  #{map-get($colors, red)};
+      margin: 2% auto;
+      padding-left: 10px;
+    }
+    &__button:focus {
+      outline: transparent;
+    }
+    &__image
+    {
+      margin: 2% auto;
+      height:100px;
+      display: table;
+    }
+    
+  }
+  &__footer{
+    &-image{
+      width: 50px;
+    }
+  }
+  &__nav{
+    &-box{
+      margin: 0 10% 0 10%;
+    }
+  }
+}
+
+.centralized-text{
+   width: 100%;
+  text-align:center;
+}
+
+.breaker{
+  width:100%;
+  height: 1px;
+  background: grey;
+  margin: 3% 10% 10px 10%;
+}
+.stars-rating{
+  width:30px;
+  height:30px;
+}
+.centralized {
+  display: table;
+  margin: 0 auto;
+}
+.clearfix:after {
+  content: "";
+	display: table;
+	clear: both;
+}
+
+$break-sm: 480px;
+$break-lg: 1024px;
+@mixin respond-to($media) {
+ @if $media == handhelds {
+ @media only screen and (max-width: $break-sm) { @content; }
+ }
+ @else if $media == medium-screens {
+ @media only screen and (min-width: $break-sm + 1) and (max-width: $break-lg - 1)
+{ @content; }
+ }
+ @else if $media == wide-screens {
+ @media only screen and (min-width: $break-lg) { @content; }
+ }
+}
+.pull
+{
+  &-left {
+    @include respond-to(medium-screens){
+      float:left;
+    }
+    @include respond-to(wide-screens)
+    {
+      float:left;
+    }
+  }
+  &-right {
+    @include respond-to(medium-screens){
+      float:right;
+    }
+    @include respond-to(wide-screens){
+      float:right;
+    }
+  }
+}
+
+.display {
+  &-descktop {
+    @include respond-to(medium-screens){
+      display: none;
+    }
+    @include respond-to(handhelds){
+      display: none;
+    }
+  }
+  &-mobile {
+    @include respond-to(wide-screens){
+      display:none;
+    }
+  }
+}
+
+.width {
+  &-mobile {
+    @include respond-to(medium-screens){
+      width: 100%;
+    }
+    @include respond-to(handhelds){
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
